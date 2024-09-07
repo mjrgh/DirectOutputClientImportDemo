@@ -54,6 +54,9 @@ file.  This is less automatic than the DOF COM object lookup, but it
 gives the client program full control over where the DLL is loaded
 from.
 
+
+## Using in your program
+
 To incorporate this into an existing program:
 
 1. Rename your existing Program.Main() function to InternalMain().

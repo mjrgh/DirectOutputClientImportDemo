@@ -55,7 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DirectOutput">
-      <HintPath>..\..\dof222\x64\DirectOutput.dll</HintPath>
+      <HintPath>References\DirectOutput.dll</HintPath>
       <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
