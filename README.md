@@ -13,8 +13,8 @@ This creates installation hassles for programs like DOFLinx that
 depend on DirectOutput.dll, but which need to be installed in their
 own separate folder tree.  .NET by itself has no way of knowing to
 look for DirectOutput.dll in the separate DirectOutput folder tree,
-so programs that want to link to it are stuck with one of two
-less-than-ideal installation strategies:
+so programs that want to link to it have traditionally had to choose
+between two less-than-ideal installation strategies:
 
 1. Install your program directly in the DirectOutput folder, so that
 .NET can find DirectOutput.dll when it looks in the program folder.
@@ -36,11 +36,19 @@ these asset and config files, so making a copy of a DOF DLL in another
 program's directory will prevent DOF from finding the shared
 config/asset files.
 
-This demonstration program provides a solution that's easy to use in
-new or existing C# or Visual Basic .NET programs.  It can be easily
-retrofitted into an existing program with no changes to the program's
-existing logic - it only requires copying and pasting in a little bit
-of new code.  
+This demonstration program provides a third solution, which allows
+the client program to be installed in its own folder tree, independent
+from the Direct Output install folder, **without** needing its own
+copy of DirectOutput.dll.  Instead, the client program loads the shared "main"
+copy of DirectOutput.dll from the Direct Output install folder, while
+still residing in its own independent folder structure.  This solves
+the DLL loading problem without any of the compromises of the two
+traditional solutions above.
+
+The technique used in this demo can be easily retrofitted into an
+existing C# or Visual Basic .NET program with no changes to the
+program's existing logic.  It only requires copying and pasting in a
+little bit of new code into the existing program.
 
 The principle of operation is to use the .NET's assembly-loading
 hooks, to override .NET's normal DLL search scheme for the
