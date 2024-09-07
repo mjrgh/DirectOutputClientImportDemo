@@ -20,7 +20,7 @@ namespace DofDllImport
 		// This is the internal program main entrypoint.  If you're refactoring
 		// an existing program to use this assembly bootstrap scheme, simply
 		// rename your existing Main() to InternalMain(), and add the new Main()
-		// above.
+		// below.
 		static void InternalMain(string[] args)
 		{
 			Console.WriteLine("Creating DirectOutput.Pinball object");
