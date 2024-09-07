@@ -54,7 +54,6 @@ file.  This is less automatic than the DOF COM object lookup, but it
 gives the client program full control over where the DLL is loaded
 from.
 
-
 ## Using in your program
 
 To incorporate this into an existing program:
@@ -69,3 +68,23 @@ testing that the demo program actually does what it purports to).
 
 The DofDllImportVB subfolder has the equivalent code in Visual Basic.
 The structure is essentially identical.
+
+## Reference copy of DirectOutput.dll
+
+The project folder tree contains a reference copy of DirectOutput.dll,
+in the `References/` folder.   This is used only at **compile time**,
+to import the DirectOutput type and function bindings into the project.
+
+This file is **not** copied to the `bin/` folder during the build, and
+you should **not** copy it there manually.  It's only there for use at
+compile-time.  It's important **not** to include it in the binaries
+(.exe) folder, since the whole point of this exercise is to force .NET
+to invoke the custom loader code to find the external version of the
+DLL in the separate DirectOutput install folder.  If there's a copy of
+the DLL the local folder, .NET will just load that, bypassing the
+custom event handler and thus failing to accomplish the goal of
+loading the shared DirectOutput copy of the file.
+
+Since the DirectOutput.dll copy is only there to import the types
+into the main program, you can replace it with any other version of
+the library that you wish to use instead for its type imports.
