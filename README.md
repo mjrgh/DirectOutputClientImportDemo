@@ -62,3 +62,7 @@ To incorporate this into an existing program:
 InternalMain() function, which is just there as an example (and for
 testing that the demo program actually does what it purports to).
 
+## Visual Basic Version
+
+The DofDllImportVB subfolder has the equivalent code in Visual Basic.
+The structure is essentially identical.

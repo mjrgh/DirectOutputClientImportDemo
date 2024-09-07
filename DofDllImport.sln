@@ -5,22 +5,42 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DofDllImport", "DofDllImport.csproj", "{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DofDllImportVB", "DofDllImportVB\DofDllImportVB.vbproj", "{7A426133-B2A8-4017-8FDF-60F59EAD0716}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Debug|Any CPU.Build.0 = Debug|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Debug|x64.ActiveCfg = Debug|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Debug|x64.Build.0 = Debug|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Debug|x86.ActiveCfg = Debug|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Debug|x86.Build.0 = Debug|x64
+		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Release|Any CPU.ActiveCfg = Release|x64
+		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Release|Any CPU.Build.0 = Release|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Release|x64.ActiveCfg = Release|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Release|x64.Build.0 = Release|x64
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Release|x86.ActiveCfg = Release|x86
 		{CC52B50C-CF43-4586-89BD-3BE4CCED3B9D}.Release|x86.Build.0 = Release|x86
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Debug|x64.Build.0 = Debug|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Debug|x86.Build.0 = Debug|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Release|x64.ActiveCfg = Release|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Release|x64.Build.0 = Release|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A426133-B2A8-4017-8FDF-60F59EAD0716}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

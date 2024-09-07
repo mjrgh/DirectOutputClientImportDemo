@@ -58,7 +58,9 @@ namespace DofDllImport
 		// in custom locations.
 		static Assembly AssemblyResolve(object source, ResolveEventArgs args)
 		{
-			// check the DLL name
+			// Check the assembly name to see if it's one we recognize.  args.Name
+			// starts with the assembly name, then a comma and the version and
+			// language suffixes.  We only care about the assembly name.
 			string dllName;
 			if (args.Name.StartsWith("DirectOutput,"))
 			{
