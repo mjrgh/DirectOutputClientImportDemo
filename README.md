@@ -4,42 +4,51 @@ This is a small demonstration program showing how a C# program can
 link to the DirectOutput DLL, with the host program residing in its
 own separate folder structure.
 
-Normally, C# requires referenced assemblies to come from one of the
-system locations or from the same folder containing the main program
-assembly.  This creates installation hassles for programs like DOFLinx
-that depend on DirectOutput.dll, but need to be installed in their own
-separate program folder structure.  There are two straightforward, but
-less-than-ideal solutions that have been used in the past:
+Normally, .NET will only load the DLL files for referenced assemblies 
+from certain pre-determined locations, primarily the directory where
+the main .NET program is running and a set of Windows system folders
+where the standard .NET DLLs reside.
 
-1. Install the program in the DirectOutput folder.  This is obviously
-bad because it intermingles files from two programs in one folder,
-which can lead to user confusion later when updating one or the other
-program.
+This creates installation hassles for programs like DOFLinx that
+depend on DirectOutput.dll, but which need to be installed in their
+own separate folder tree.  .NET by itself has no way of knowing to
+look for DirectOutput.dll in the separate DirectOutput folder tree,
+so programs that want to link to it are stuck with one of two
+less-than-ideal installation strategies:
 
-2. Copy DirectOutput.dll (and any other DOF dependencies) to the other
-program's install folder.  This is somewhat less obviously bad than
-the first option, and in fact, it's not entirely uncommon for programs
-to include private copies of dependency DLLs, specifically to avoid
-the "DLL hell" of incompatible version conflicts that often happen
-when multiple programs try to share a common central copy of a given
-DLL.  But it *is* problematic for DOF, because DOF has a bunch of
-shared resources (configuration file and asset files) that it depends
-upon to run properly, and in most cases these should always come from
-the central DOF install folder.  The DOF DLLs use their own DLL file
-locations as the starting point to look for asset files, so making a
-copy of a DOF DLL in another program's directory will prevent DOF from
-finding the shared config/asset files.
+1. Install your program directly in the DirectOutput folder, so that
+.NET can find DirectOutput.dll when it looks in the program folder.
+This is obviously bad for most use cases because it intermingles files
+from two different applications in one folder, which can lead to user
+confusion later when updating one or the other program.
+
+2. Copy DirectOutput.dll (and any other DOF dependencies) to your
+program's install folder.  This isn't as *obviously* bad as the first
+option, and in fact, it's not entirely uncommon for programs to
+include private copies of dependency DLLs simply to avoid any version
+mismatches that result from an external, shared copy of a DLL getting
+updated by other programs.  But it *is* problematic for DOF, because
+DOF has a bunch of shared resources (configuration file and asset
+files) that it depends upon to run properly, and in most cases these
+should always come from the central DOF install folder.  The DOF DLLs
+use their own DLL file locations as the starting point to look for
+these asset and config files, so making a copy of a DOF DLL in another
+program's directory will prevent DOF from finding the shared
+config/asset files.
 
 This demonstration program provides a solution that's easy to use in
-new or existing C# programs.  It can be easily retrofitted into an
-existing C# program with minimal changes.  The principle of operation
-is to use the assembly-loading hooks that .NET provides, to override
-.NET's normal DLL search scheme for the DirectOutput DLL in
-particular, loading DirectOutput from the central DOF install folder.
-This eliminates the need for the C# client to make its own copy of the
-DOF DLL, while still allowing the client program to be installed in
-its own folder structure, with no connection to the DOF install
-folder. 
+new or existing C# or Visual Basic .NET programs.  It can be easily
+retrofitted into an existing program with no changes to the program's
+existing logic - it only requires copying and pasting in a little bit
+of new code.  
+
+The principle of operation is to use the .NET's assembly-loading
+hooks, to override .NET's normal DLL search scheme for the
+DirectOutput DLL in particular, loading DirectOutput from the central
+DOF install folder.  This eliminates the need for the C# client to
+make its own copy of the DOF DLL, while still allowing the client
+program to be installed in its own folder structure, with no
+connection to the DOF install folder. 
 
 The demonstration program shows two ways of finding DOF.  The first is
 to look up the registered DOF COM object.  If found, the object's .NET
