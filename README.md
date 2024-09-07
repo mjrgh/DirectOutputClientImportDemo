@@ -75,7 +75,8 @@ testing that the demo program actually does what it purports to).
 
 3. Find all of the copies of **DirectOutput.dll** in the
 Solution Explorer project tree, under Project Name > References.
-Select each, go to the Properties pane, and set **Copy Local** to **False**.
+For each one, open its properties (right click -> Properties),
+and set **Copy Local** to **False**.
 
 4. Find all copies of DirectOutput.dll in your project's Output Path
 folder, where your .EXE files are generated.  This is the folder set
