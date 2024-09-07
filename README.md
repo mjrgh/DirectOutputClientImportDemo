@@ -73,6 +73,23 @@ To incorporate this into an existing program:
 InternalMain() function, which is just there as an example (and for
 testing that the demo program actually does what it purports to).
 
+3. Find all of the copies of **DirectOutput.dll** in the
+Solution Explorer project tree, under Project Name > References.
+Select each, go to the Properties pane, and set **Copy Local** to **False**.
+
+4. Find all copies of DirectOutput.dll in your project's Output Path
+folder, where your .EXE files are generated.  This is the folder set
+in your project properties under **Build > Output Path**, and is
+usually called something like **bin\Debug** or **bin\x64\Debug**,
+or **bin\Release** or **bin\x64\Release** if you're building in 
+release mode.  **Delete** all copies of DirectOutput.dll in these
+folders.  If you don't, .NET will just load these and bypass the
+custom file search that finds the main Direct Output shared copy
+that we're explicitly trying to load.  The custom resolver is only
+invoked when .NET **can't** find the file on its own using its
+standard search algorithm.
+
+
 ## Visual Basic Version
 
 The DofDllImportVB subfolder has the equivalent code in Visual Basic.
